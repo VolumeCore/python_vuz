@@ -16,7 +16,7 @@ with ZipFile('tiff-4.2.0_lab1.zip', 'r') as zipObj:
    zipObj.extractall()
 
 print('Задание 2')
-for root, dirs, files in os.walk("./tiff-4.2.0"):
+for root, dirs, files in os.walk("../tiff-4.2.0"):
     for file in files:
         if file.endswith(".txt"):
             tmp = open(os.path.join(root, file), 'rb').read()
@@ -24,7 +24,7 @@ for root, dirs, files in os.walk("./tiff-4.2.0"):
 
 print('Задание 3')
 link = ''
-for root, dirs, files in os.walk("./tiff-4.2.0"):
+for root, dirs, files in os.walk("../tiff-4.2.0"):
     for file in files:
         if file.endswith(".sh"):
             tmp = open(os.path.join(root, file), 'rb').read()
@@ -61,7 +61,7 @@ for line in lines:
 
     resultArr[0] = resultArr[0][4::]
 
-    f = open('data.txt', 'a', encoding='utf-8')
+    f = open('../data.txt', 'a', encoding='utf-8')
     f.write(resultArr[0] + '\nЗаболели: ' + resultArr[1] + '\nУмерли: ' + resultArr[2] + '\nВылечились: ' + resultArr[
             3] + '\nАктивные случаи: ' + resultArr[4] + '\n\n')
     f.close()
@@ -70,7 +70,7 @@ for line in lines:
 
     result_dct[resultArr[0]] = 'Заболели: ' + resultArr[1] + 'Умерли: ' + resultArr[2] + 'Вылечились' + resultArr[3] + 'Активные случаи' + resultArr[4] + ';'
 
-tmpp = open('data.csv', 'w', encoding='utf-16')
+tmpp = open('../data.csv', 'w', encoding='utf-16')
 writer = csv.writer(tmpp)
 for key, value in result_dct.items():
     writer.writerow([key, value])
