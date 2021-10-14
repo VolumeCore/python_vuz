@@ -1,19 +1,9 @@
-# Задание №1
-# import zipfile
-# import os
-
-# directory_to_extract_to = '...'     #директория извлечения файлов архива
-# arch_file = '...' #путь к архиву
-
-#Создать новую директорию, в которую будет распакован архив
-#С помощью модуля zipfile извлечь содержимое архива в созданную директорию
-
 from zipfile import ZipFile
 import os, hashlib, requests, re, csv
 
 print('Задание 1')
 with ZipFile('./tiff-4.2.0_lab1.zip', 'r') as zipObj:
-   zipObj.extractall()
+    zipObj.extractall()
 
 print('Задание 2')
 for root, dirs, files in os.walk("./tiff-4.2.0"):
@@ -34,8 +24,8 @@ for root, dirs, files in os.walk("./tiff-4.2.0"):
 
 print('Задание 4')
 r = requests.get(link)
-result_dct ={}
-counter=0
+result_dct = {}
+counter = 0
 
 lines = re.findall(r'<div class="Table-module_row__3TH83">.*?</div>.*?</div>.*?</div>.*?</div>.*?</div>', r.text)
 for line in lines:
@@ -55,7 +45,6 @@ for line in lines:
             resultArr[i] = ''
     resultArr = list(filter(None, resultArr))
 
-
     if resultArr[0] == 'Заболели' or resultArr[0] == '📝  ':
         continue
 
@@ -63,12 +52,11 @@ for line in lines:
 
     f = open('./data.txt', 'a', encoding='utf-8')
     f.write(resultArr[0] + '\nЗаболели: ' + resultArr[1] + '\nУмерли: ' + resultArr[2] + '\nВылечились: ' + resultArr[
-            3] + '\nАктивные случаи: ' + resultArr[4] + '\n\n')
+        3] + '\nАктивные случаи: ' + resultArr[4] + '\n\n')
     f.close()
 
-
-
-    result_dct[resultArr[0]] = 'Заболели: ' + resultArr[1] + '\nУмерли: ' + resultArr[2] + '\nВылечились: ' + resultArr[3] + '\nАктивные случаи: ' + resultArr[4] + ';\n'
+    result_dct[resultArr[0]] = 'Заболели: ' + resultArr[1] + '\nУмерли: ' + resultArr[2] + '\nВылечились: ' + resultArr[
+        3] + '\nАктивные случаи: ' + resultArr[4] + ';\n'
 
 tmpp = open('./data.csv', 'w', encoding='utf-16')
 writer = csv.writer(tmpp)
