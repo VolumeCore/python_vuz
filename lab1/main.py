@@ -68,7 +68,7 @@ for line in lines:
 
 
 
-    result_dct[resultArr[0]] = 'Заболели: ' + resultArr[1] + 'Умерли: ' + resultArr[2] + 'Вылечились' + resultArr[3] + 'Активные случаи' + resultArr[4] + ';'
+    result_dct[resultArr[0]] = 'Заболели: ' + resultArr[1] + '\nУмерли: ' + resultArr[2] + '\nВылечились: ' + resultArr[3] + '\nАктивные случаи: ' + resultArr[4] + ';\n'
 
 tmpp = open('./data.csv', 'w', encoding='utf-16')
 writer = csv.writer(tmpp)
