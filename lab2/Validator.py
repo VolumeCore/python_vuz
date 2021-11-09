@@ -3,15 +3,18 @@ from Entry import Entry
 
 
 class Validator:
+    """Validator class to create object with get_valid / get_invalid methods"""
     entries: list[Entry]
 
     def __init__(self, entries: list[Entry]):
+        """Constructor: gets entries and copy them to local list"""
         self.entries = []
 
         for i in entries:
             self.entries.append(i.copy())
 
     def parse_invalid(self) -> dict:
+        """Get invalid writes"""
         illegal_entries = {
             "telephone": 0,
             "height": 0,
@@ -33,6 +36,7 @@ class Validator:
         return illegal_entries
 
     def parse_valid(self) -> list[Entry]:
+        """Get valid writes"""
         legal_entries: list[Entry] = []
 
         for i in self.entries:
@@ -44,6 +48,7 @@ class Validator:
         return legal_entries
 
     def parse_entry(self, entry: Entry) -> list[str]:
+        """Parse simple node"""
         illegal_keys = []
 
         if not self.check_telephone(entry['telephone']):

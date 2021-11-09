@@ -1,11 +1,6 @@
-import json
-import sys
 import argparse
-import time
 from FileReader import FileReader
-
 from Validator import Validator
-from tqdm import tqdm
 
 
 def createParser():
