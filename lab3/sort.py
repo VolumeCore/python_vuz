@@ -32,6 +32,3 @@ def merge(left, right, compare):
         result.append(right[j])
         j += 1
     return result
-
-
-# print(merge_sort([{'telephone': '+7-(909)-591-91-17', 'height': '1.86', 'inn': '464635336120', 'passport_number': 289548, 'university': 'Санкт-Петербургский государственный политехнический университет', 'age': 29, 'academic_degree': 'Магистр', 'worldview': 'Буддизм', 'address': 'ул. Богоявленская 568'}, {'telephone': '+7-(968)-105-45-80', 'height': 0.46, 'inn': '409425782961', 'passport_number': 754910, 'university': 'Бауманское МГТУ', 'age': 38, 'academic_degree': 'Доктор наук', 'worldview': 'Пантеизм', 'address': 'Аллея Петропавловская 279'}]))
