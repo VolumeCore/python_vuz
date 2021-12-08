@@ -18,8 +18,6 @@ def getResult(*args):
         sumSick = sumSick + int(j['Заболели'])
     return (sum, sumSick)
 
-
-
 def testt(*args):
     sick = list(args[0])
     healthy = list(args[1])
@@ -37,25 +35,23 @@ if __name__ == '__main__':
     print('Вылечились', getResult()[0])
     print('Заболели', getResult()[1])
 
-    sizes1 = []
-    explode1 = []
+    sizes = []
 
     for i in range(2, 5):
         time0 = time()
-        with Pool(i) as pool:
+        with Pool(i * i) as pool:
             res = pool.apply(testt, [df['Заболели'], df['Вылечились']])
-        sizes1.append(time() - time0)
+        sizes.append(time() - time0)
 
         print(time() - time0)
 
     print(res)
 
-    labels = 'Luck', 'Skill', 'Concentrated power of will'  # заголовки, против часовой
-    sizes = [2, 4, 8, 5]  # значения
+    labels = '4', '9', '16'  # заголовки, против часовой
     explode = (0, 0, 0)  # парметры выделения кусков диаграммы
 
     fig1, ax1 = plt.subplots(figsize=(7, 7))
-    plt.title('Reason to remember the name', fontsize=20)
-    ax1.pie(sizes1, explode=explode, labels=labels, shadow=True, startangle=120)
+    plt.title('Диаграмма зависимости времени выполнения\n от количества процессов', fontsize=20)
+    ax1.pie(sizes, explode=explode, labels=labels, shadow=True, startangle=120)
     ax1.axis('equal')  # чтобы получился круг
     plt.show()
